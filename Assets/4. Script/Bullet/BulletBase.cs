@@ -59,13 +59,14 @@ public class BulletBase : MonoBehaviour
     {
         if (isPlayerBullet && other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyController>()?.TakeDamage(damage);
+            DamageManager.Instance.ApplyDamage(other.gameObject, damage, gameObject);
             Destroy(gameObject);
         }
         else if (!isPlayerBullet && other.CompareTag("Player"))
         {
-            PlayerHealth.Instance.TakeDamage(1);
+            DamageManager.Instance.ApplyDamage(other.gameObject, damage, gameObject);
             Destroy(gameObject);
         }
     }
+
 }

@@ -29,4 +29,12 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
             GameManager.Instance.GameOver();
     }
+
+    // 하드코어 모드 → HP를 1로 고정
+    public void SetHardcoreMode()
+    {
+        maxHealth = 1;
+        currentHealth = 1;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
 }

@@ -36,6 +36,12 @@ public class GameManager : MonoBehaviour
         if (SlowActive) return;
         StartCoroutine(SlowRoutine(duration));
     }
+    public void GameClear()
+    {
+        if (IsGameOver) return;
+        IsGameOver = true;
+        Debug.Log("[GameManager] Game Clear");
+    }
 
     IEnumerator SlowRoutine(float duration)
     {
